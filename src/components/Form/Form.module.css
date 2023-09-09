@@ -1,5 +1,29 @@
 .container{
+    width: 750px;
+    height: 480px;
+    background-color: #fff;
+    border: none;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.sideBar{
+    width: 220px;
+    height: 460px;
+    /* border: 1px solid black; */
+    border-radius: 15px;
+    background-image: url("../../assets/bg-sidebar-desktop.jpg");
+    background-position: center;
+    background-repeat: none;
+    background-size: cover;
+}
+
+.divForm{
     width: 500px;
-    height: 300px;
-    background-color: blue;
+    height: 460px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
 }

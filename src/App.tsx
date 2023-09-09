@@ -5,7 +5,6 @@ function App() {
 
   return (
     <>
-      <h1>Challenge Form</h1>
       <Form />
     </>
   )
