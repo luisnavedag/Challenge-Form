@@ -2,20 +2,23 @@ import styles from "./Step1.module.css"
 
 interface Step1Props {
     formData: {
-      name: string;
-      email: string;
-      phone: string;
+        name: string;
+        email: string;
+        phone: string;
     };
     setFormData: React.Dispatch<React.SetStateAction<{
-      name: string;
-      email: string;
-      phone: string;
+        name: string;
+        email: string;
+        phone: string;
     }>>;
     nextStep: () => void;
-  }
+}
 
 export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep }) => {
 
+    const handleNextStep = () => {
+        nextStep(); 
+    };
 
     return (
         <div className={styles.container}>
@@ -53,7 +56,11 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
                 </div>
             </div>
             <div className={styles.divButtons}>
-                <button className={styles.nextButton}>Next Step</button>
+                <button 
+                className={styles.nextButton}
+                onClick={handleNextStep}>
+                    Next Step
+                </button>
             </div>
         </div>
     )
