@@ -35,7 +35,7 @@ export const Form = () => {
       case 2:
         return <Step2 formData={formData} setFormData={setFormData} nextStep={nextStep} prevStep={prevStep} />;
       case 3:
-        return <Step3 formData={formData} setFormData={setFormData} prevStep={prevStep} />;
+        return <Step3 formData={formData} setFormData={setFormData} prevStep={prevStep} nextStep={nextStep} />;
       default:
         return null;
     }
