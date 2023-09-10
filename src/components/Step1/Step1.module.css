@@ -9,18 +9,18 @@
 }
 
 .info{
-    width: 90%;
+    width: 100%;
     height: 100px;
     border: 1px solid red;
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding-left: 50px;
+    padding-left: 70px;
     justify-content: start;
 }
 
 .title{
-    color: #0b274b;
+    color: #03295a;
     font-size: 30px;
     font-family: url("../../assets/fonts/Ubuntu-Bold.ttf");
     font-weight: bolder;
@@ -42,5 +42,51 @@
 .input{
     display: flex;
     flex-direction: column;
-    padding-left: 50px;
+    padding-left: 70px;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.input label{
+    color: #062b53;
+    text-align: start;
+    font-weight: 700;
+    font-size: 13px;
+    
+}
+
+.input input{
+    width: 350px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px outset gray;
+    font-family: Ubuntu;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.divButtons{
+    border: 1px solid purple;
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding-right: 70px;
+    padding-bottom: 40px;
+}
+
+.nextButton{
+    width: 95px;
+    height: 40px;
+    background-color: #03295a;
+    font-size: 12px;
+    font-family: Ubuntu;
+    transition: .2s;
+    &:hover{
+        transform: scale(0.98);
+        transition: .3s;
+    }
+    
 }
