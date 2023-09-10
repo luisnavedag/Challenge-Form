@@ -5,13 +5,17 @@ interface Step1Props {
         name: string;
         email: string;
         phone: string;
-    };
-    setFormData: React.Dispatch<React.SetStateAction<{
+        selectedPlan: "Arcade" | "Advanced" | "Pro"; 
+        subscriptionType: "Monthly" | "Annual"; 
+      };
+      setFormData: React.Dispatch<React.SetStateAction<{
         name: string;
         email: string;
         phone: string;
-    }>>;
-    nextStep: () => void;
+        selectedPlan: "Arcade" | "Advanced" | "Pro"; // 
+        subscriptionType: "Monthly" | "Annual"; 
+      }>>;
+      nextStep: () => void;
 }
 
 export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep }) => {
