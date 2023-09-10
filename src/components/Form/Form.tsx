@@ -10,6 +10,11 @@ interface FormData {
   phone: string;
   selectedPlan: "Arcade" | "Advanced" | "Pro";
   subscriptionType: "Monthly" | "Annual";
+  addons: {
+    onlineService: boolean;
+    largerStorage: boolean;
+    customizableProfile: boolean;
+  };
 }
 
 export const Form = () => {
@@ -20,6 +25,11 @@ export const Form = () => {
     phone: "",
     selectedPlan: "Arcade",
     subscriptionType: "Monthly",
+    addons: {
+      onlineService: false,
+      largerStorage: false,
+      customizableProfile: false,
+    },
   });
 
   const [step, setStep] = useState<number>(1);
@@ -40,8 +50,8 @@ export const Form = () => {
         return <Step2 formData={formData} setFormData={setFormData} nextStep={nextStep} prevStep={prevStep} />;
       case 3:
         return <Step3 formData={formData} setFormData={setFormData} prevStep={prevStep} nextStep={nextStep} />;
-      case 4: 
-      return <Step4 formData={formData} setFormData={setFormData} prevStep={prevStep} nextStep={nextStep} />;
+      case 4:
+        return <Step4 formData={formData} setFormData={setFormData} prevStep={prevStep} nextStep={nextStep} />;
 
 
       default:

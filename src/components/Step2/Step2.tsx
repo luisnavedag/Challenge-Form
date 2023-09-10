@@ -42,40 +42,58 @@ export const Step2: React.FC<Step2Props> = ({ formData, setFormData, nextStep, p
 
     return (
         <div className={styles.container}>
+
+            {/* TITLE AND SUBTITLE */}
             <div className={styles.info}>
                 <h2 className={styles.title}>Select your plan</h2>
                 <p className={styles.titleDesc}>You have the option of monthly or yearly billing.</p>
             </div>
+
+            {/* //PLANS */}
             <div className={styles.divPlans}>
-                <div className={styles.plan} onClick={() => handlePlanSelect("Arcade")}>
+
+                {/* ARCADE PLAN */}
+                <div className={`${styles.plan} ${formData.selectedPlan === "Arcade" ? styles.selectedPlan : ""
+                    }`}
+                     onClick={() => handlePlanSelect("Arcade")}>
                     <img src={arcade} alt="arcade" width={30} height={30} />
                     <div className={styles.planInfo}>
                         <h3>Arcade</h3>
                         <p>{formData.subscriptionType === "Monthly" ? "$9/mo" : "$90/yr"}</p>
-                        {formData.subscriptionType === "Annual" ? <p style={{color: "#03295a", fontWeight:"bolder"}}>2 months free</p> : null}
+                        {formData.subscriptionType === "Annual" ? <p style={{ color: "#03295a", fontWeight: "bolder" }}>2 months free</p> : null}
                     </div>
                 </div>
-                <div className={styles.plan}>
+
+                {/* ADVANCED PLAN */}
+                <div className={`${styles.plan} ${formData.selectedPlan === "Advanced" ? styles.selectedPlan : ""
+                    }`}
+                     onClick={() => handlePlanSelect("Advanced")}>
                     <img src={advanced} alt="advanced" width={30} height={30} />
                     <div className={styles.planInfo}>
                         <h3>Advanced</h3>
                         <p>{formData.subscriptionType === "Monthly" ? "$12/mo" : "$120/yr"}</p>
-                        {formData.subscriptionType === "Annual" ? <p style={{color: "#03295a", fontWeight:"bolder"}}>2 months free</p> : null}
+                        {formData.subscriptionType === "Annual" ? <p style={{ color: "#03295a", fontWeight: "bolder" }}>2 months free</p> : null}
                     </div>
                 </div>
-                <div className={styles.plan}>
+
+                {/* PRO PLAN */}
+                <div className={`${styles.plan} ${formData.selectedPlan === "Pro" ? styles.selectedPlan : ""
+                    }`} 
+                    onClick={() => handlePlanSelect("Pro")}>
                     <img src={pro} alt="pro" width={30} height={30} />
                     <div className={styles.planInfo}>
                         <h3>Pro</h3>
                         <p>{formData.subscriptionType === "Monthly" ? "$15/mo" : "$150/yr"}</p>
-                        {formData.subscriptionType === "Annual" ? <p style={{color: "#03295a", fontWeight:"bolder"}}>2 months free</p> : null}
+                        {formData.subscriptionType === "Annual" ? <p style={{ color: "#03295a", fontWeight: "bolder" }}>2 months free</p> : null}
                     </div>
                 </div>
             </div>
+
+            {/* SWITCH TOGGLE */}
             <div className={styles.divToggle}>
-                <div className="w-80 bg-slate-100 border flex justify-center">
+                <div className="w-80 bg-slate-100 flex justify-center py-1 rounded-md">
                     <label className="flex items-center space-x-2">
-                        <span className={formData.subscriptionType === "Monthly" ? "text-blue-900 font-bold text-sm" : "text-slate-400 font-bold text-sm"}>Monthly</span>
+                        <span className={formData.subscriptionType === "Monthly" ? "text-blue-900 font-bold text-xs" : "text-slate-400 font-bold text-xs"}>Monthly</span>
                         <div className="relative">
                             <input
                                 type="checkbox"
@@ -89,13 +107,14 @@ export const Step2: React.FC<Step2Props> = ({ formData, setFormData, nextStep, p
                                         }`}
                                 ></div>
                             </div>
-
                         </div>
-                        <span className={formData.subscriptionType === "Annual" ? "text-blue-900 font-bold text-sm" : "text-slate-400 font-bold text-sm"}>Yearly</span>
+                        <span className={formData.subscriptionType === "Annual" ? "text-blue-900 font-bold text-xs" : "text-slate-400 font-bold text-xs"}>Yearly</span>
                     </label>
 
                 </div>
             </div>
+
+            {/* NEXT AND BACK BUTTONS */}
             <div className={styles.divButtons}>
                 <p className={styles.back} onClick={prevStep}>Go Back</p>
                 <button

@@ -5,23 +5,35 @@ interface Step1Props {
         name: string;
         email: string;
         phone: string;
-        selectedPlan: "Arcade" | "Advanced" | "Pro"; 
-        subscriptionType: "Monthly" | "Annual"; 
-      };
-      setFormData: React.Dispatch<React.SetStateAction<{
+        selectedPlan: "Arcade" | "Advanced" | "Pro";
+        subscriptionType: "Monthly" | "Annual";
+    };
+    setFormData: React.Dispatch<React.SetStateAction<{
         name: string;
         email: string;
         phone: string;
         selectedPlan: "Arcade" | "Advanced" | "Pro"; // 
-        subscriptionType: "Monthly" | "Annual"; 
-      }>>;
-      nextStep: () => void;
+        subscriptionType: "Monthly" | "Annual";
+    }>>;
+    nextStep: () => void;
 }
 
 export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep }) => {
 
     const handleNextStep = () => {
-        nextStep(); 
+        nextStep();
+    };
+
+    const handleInputChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        const { name, value } = event.target;
+
+        // Actualizar el estado de formData con los nuevos valores
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
     };
 
     return (
@@ -37,7 +49,9 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
                         type="text"
                         placeholder="e.g. Stephen King"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline focus:shadow-outline"
+                        name="name"
                         value={formData.name}
+                        onChange={handleInputChange}
                     />
                 </div>
                 <div className={styles.input}>
@@ -46,7 +60,10 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
                         type="text"
                         placeholder="e.g. stephenking@lorem.com"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline focus:shadow-outline"
+                        name="email"
                         value={formData.email}
+                        onChange={handleInputChange}
+
                     />
                 </div>
                 <div className={styles.input}>
@@ -55,14 +72,16 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
                         type="text"
                         placeholder="e.g. +1 234 567 890"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline focus:shadow-outline"
+                        name="phone"
                         value={formData.phone}
+                        onChange={handleInputChange}
                     />
                 </div>
             </div>
             <div className={styles.divButtons}>
-                <button 
-                className={styles.nextButton}
-                onClick={handleNextStep}>
+                <button
+                    className={styles.nextButton}
+                    onClick={handleNextStep}>
                     Next Step
                 </button>
             </div>

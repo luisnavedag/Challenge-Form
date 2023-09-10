@@ -47,12 +47,23 @@
 .plan{
     width: 150px;
     height: 125px;
-    border: 1px solid gray;
+    border: 1px solid rgba(128, 128, 128, 0.468);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     padding: 10px 0 5px 7px;
     justify-content: space-between;
+    cursor: pointer;
+    transition: .1s;
+    &:hover{
+        border: 1px solid #03295a;
+        transition: .1s;
+    }
+}
+
+.selectedPlan{
+    background-color: #f8f9fe;
+    border: 1px solid #03295a;
 }
 
 .planInfo{
@@ -80,6 +91,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    position: relative;
+    bottom: 90px;
     
 }
 
@@ -87,8 +100,13 @@
     font-size: 15px;
     color: gray;
     padding-left: 70px;
-    font-weight: 400;
+    font-weight: 600;
     cursor: pointer;
+    transition: .2s;
+    &:hover{
+        color: #03295a;
+        transition: .3s;
+    }
 }
 
 .divButtons{
