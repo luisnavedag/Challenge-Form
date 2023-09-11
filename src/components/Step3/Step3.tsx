@@ -106,13 +106,21 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
             if (!prevData.addons || !prevData.addons[addonName]) {
                 return prevData; // No hacemos cambios si los datos no están definidos o el addon no existe.
             }
-    
+
+            // Copia del objeto addons actual
+            const updatedAddons = { ...prevData.addons };
+
+            // Copia del addon específico y actualizamos su propiedad selected
+            const updatedAddon = { ...updatedAddons[addonName] };
+            updatedAddon.selected = !updatedAddon.selected;
+
+            // Actualizamos el valor del addon en el objeto updatedAddons
+            updatedAddons[addonName] = updatedAddon;
+
+            // Retornar el estado actualizado con los addons modificados
             return {
                 ...prevData,
-                addons: {
-                    ...prevData.addons,
-                    [addonName]: !prevData.addons[addonName],
-                },
+                addons: updatedAddons,
             };
         });
     };
@@ -121,8 +129,8 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
     const getAddonPrice = (addonName: "onlineService" | "largerStorage" | "customizableProfile") => {
         const addon = formData.addons[addonName];
         return formData.subscriptionType === "Monthly"
-            ? `$${addon.monthlyPrice}/mo`
-            : `$${addon.annualPrice}/yr`;
+            ? `+$${addon.monthlyPrice}/mo`
+            : `+$${addon.annualPrice}/yr`;
     };
 
     return (
@@ -143,7 +151,8 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                     <div className="border w-10 flex align-middle justify-center h-full">
                         <input
                             type="checkbox"
-                            className=""
+                            className={`${formData.addons.onlineService.selected ? "bg-slate-50" : "bg-" }`}
+                            checked={formData.addons.onlineService.selected}
                             onChange={() => toggleAddon("onlineService")}
                         />
                     </div>
@@ -174,7 +183,7 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                         <label className="text-blue-900 text-sm font-bold text-start">
                             Larger Storage
                         </label>
-                        <p className="text-gray-400 text-sm text-start">Increase your storage capacity</p>
+                        <p className="text-gray-400 text-sm text-start">Extra 1TB of cloud save</p>
                     </div>
                     <div className="w-20 h-full border border-black flex align-baseline justify-center">
                         <p className="text-blue-500 text-xs pt-5 font-bold">
@@ -197,7 +206,7 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                         <label className="text-blue-900 text-sm font-bold text-start">
                             Customizable Profile
                         </label>
-                        <p className="text-gray-400 text-sm text-start">Personalize your profile</p>
+                        <p className="text-gray-400 text-sm text-start">Custom theme on your profile</p>
                     </div>
                     <div className="w-20 h-full border border-black flex align-baseline justify-center">
                         <p className="text-blue-500 text-xs pt-5 font-bold">

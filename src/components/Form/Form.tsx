@@ -3,6 +3,7 @@ import styles from "./Form.module.css";
 import { Step1 } from "../Step1/Step1";
 import { Step2 } from "../Step2/Step2";
 import { Step3 } from "../Step3/Step3";
+import { Step4 } from "../Step4/Step4";
 
 interface FormData {
   name: string;
@@ -121,7 +122,7 @@ export const Form = () => {
       case 3:
         return <Step3 formData={formData} setFormData={setFormData} prevStep={prevStep} nextStep={nextStep} />;
       case 4:
-        return <Step4 formData={formData} setFormData={setFormData} prevStep={prevStep} nextStep={nextStep} />;
+        return <Step4 formData={formData} setFormData={setFormData} prevStep={prevStep} nextStep={nextStep} setStep={setStep} />;
 
 
       default:

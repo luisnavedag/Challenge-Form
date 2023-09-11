@@ -128,7 +128,7 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
                     <input
                         type="text"
                         placeholder="e.g. Stephen King"
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline focus:shadow-outline"
+                        className="shadow appearance-none border border-gray-100 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline focus:shadow-outline"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
