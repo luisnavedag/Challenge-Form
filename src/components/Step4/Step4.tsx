@@ -102,6 +102,7 @@ interface Step4Props {
 
 export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, nextStep, setStep }) => {
 
+    // CAMBIAR EL PLAN
     const handlePlanChange = () => {
         setStep(2)
     };
@@ -119,21 +120,33 @@ export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, n
             <div className={styles.summary}>
                 <div className={styles.sumContainer}>
                     <div className={styles.divUp}>
-                        <div className="w-40 border h-full pt-2 pl-2">
+                        <div className="w-40 h-full pt-2 pl-2">
+
+                            {/* PLAN AND SUBSCRIPTION */}
                             <p className="text-blue-950 text-sm font-extrabold text-left">{Object.values(formData.selectedPlan).find((plan) => plan.selected)?.name} (
                                 {formData.subscriptionType === "Monthly" ? "Monthly" : "Annual"})
                             </p>
-                            <p onClick={handlePlanChange} className={styles.changeLink}>
+
+                            {/* CHANGE PLAN */}
+                            <p onClick={handlePlanChange} className="cursor-pointer text-xs text-gray-700 text-left underline">
                                 Change
                             </p>
                         </div>
-                        <div className="w-20 border h-full">
-                            <p className="text-blue-950 text-sm font-extrabold">{Object.values(formData.selectedPlan).find((plan) => plan.selected)?.name} (
-                                {formData.subscriptionType === "Monthly" ? "Monthly" : "Annual"})
+                        <div className="w-20 h-full flex align-middle justify-center pt-4">
+                            <p className="text-blue-950 text-sm font-extrabold text-center">
+                                ${formData.subscriptionType === "Monthly" 
+                                ? Object.values(formData.selectedPlan).find((plan) => plan.selected)?.monthlyPrice + "/mo"
+                                : 
+                                Object.values(formData.selectedPlan).find((plan) => plan.selected)?.annualPrice + "yr"
+                            }
                             </p>
                         </div>
                     </div>
-                    <hr className="border" />
+
+                    {/* LINE BETWEEN */}
+                    <div className="border w-80 h-0 border-gray-200"></div>
+
+
                     <div className={styles.divDown}>
 
                     </div>
