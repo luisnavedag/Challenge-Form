@@ -32,3 +32,61 @@
     font-size: 15px;
     margin: 0;
 }
+
+.addons{
+    width: 100%;
+    height: 250px;
+    border: 2px solid green;
+    padding-left: 70px;
+    padding-right: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.addon{
+    width: 100%;
+    height: 60px;
+    border: 1px solid red;
+    border-radius: 10px;
+    display: flex;
+}
+
+
+.divButtons{
+    border: 1px solid purple;
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    padding-right: 70px;
+    padding-bottom: 40px;
+}
+
+.nextButton{
+    width: 95px;
+    height: 40px;
+    background-color: #03295a;
+    font-size: 13px;
+    font-family: Ubuntu;
+    transition: .2s;
+    &:hover{
+        transform: scale(0.98);
+        transition: .3s;
+    }
+    
+}
+
+.back{
+    font-size: 15px;
+    color: gray;
+    padding-left: 70px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+    &:hover{
+        color: #03295a;
+        transition: .3s;
+    }
+}

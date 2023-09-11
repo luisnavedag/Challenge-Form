@@ -46,47 +46,72 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
     return (
         <div className={styles.container}>
             <div className={styles.info}>
-                <h2 className={styles.title}>Add-ons</h2>
+                <h2 className={styles.title}>Pick add-ons</h2>
                 <p className={styles.titleDesc}>
-                    Customize your plan with these additional services.
+                    Add-ons help enhance your gaming experience.
                 </p>
             </div>
-            <div className={styles.addon}>
-                <label className="block text-gray-600 text-sm font-bold mb-2">
-                    Online Service
-                </label>
-                <input
-                    type="checkbox"
-                    className="mr-2"
-                    checked={formData.addons.onlineService}
-                    onChange={() => toggleAddon("onlineService")}
-                />
-                Include Online Service
+
+            <div className={styles.addons}>
+                <div className={styles.addon}>
+                    <div className="border w-10 flex align-middle justify-center h-full">
+                        <input
+                            type="checkbox"
+                            className=""
+                            checked={formData.addons.onlineService}
+                            onChange={() => toggleAddon("onlineService")}
+                        />
+                    </div>
+                    <div className="border border-green-500 w-72 flex flex-col align-middle justify-start pt-2 pl-2">
+                        <label className="text-blue-900 text-sm font-bold text-start">
+                            Online Service
+                        </label>
+                        <p className="text-gray-400 text-sm text-start">Access to multiplayer games</p>
+                    </div>
+                    <div className="w-20 h-full border border-black flex align-baseline justify-center">
+                        <p className="text-blue-500 text-xs pt-5 font-bold">+1$/mo</p>
+                    </div>
+                </div>
+                <div className={styles.addon}>
+                    <div className="border w-10 flex align-middle justify-center h-full">
+                        <input
+                            type="checkbox"
+                            className=""
+                            checked={formData.addons.largerStorage}
+                            onChange={() => toggleAddon("largerStorage")}
+                        />
+                    </div>
+                    <div className="border border-green-500 w-72 flex flex-col align-middle justify-start pt-2 pl-2">
+                        <label className="text-blue-900 text-sm font-bold text-start">
+                            Online Service
+                        </label>
+                        <p className="text-gray-400 text-sm text-start">Access to multiplayer games</p>
+                    </div>
+                    <div className="w-20 h-full border border-black flex align-baseline justify-center">
+                        <p className="text-blue-500 text-xs pt-5 font-bold">+2$/mo</p>
+                    </div>
+                </div>
+                <div className={styles.addon}>
+                    <div className="border w-10 flex align-middle justify-center h-full">
+                        <input
+                            type="checkbox"
+                            className=""
+                            checked={formData.addons.customizableProfile}
+                            onChange={() => toggleAddon("customizableProfile")}
+                        />
+                    </div>
+                    <div className="border border-green-500 w-72 flex flex-col align-middle justify-start pt-2 pl-2">
+                        <label className="text-blue-900 text-sm font-bold text-start">
+                            Online Service
+                        </label>
+                        <p className="text-gray-400 text-sm text-start">Access to multiplayer games</p>
+                    </div>
+                    <div className="w-20 h-full border border-black flex align-baseline justify-center">
+                        <p className="text-blue-500 text-xs pt-5 font-bold">+2$/mo</p>
+                    </div>
+                </div>
             </div>
-            <div className={styles.addon}>
-                <label className="block text-gray-600 text-sm font-bold mb-2">
-                    Larger Storage
-                </label>
-                <input
-                    type="checkbox"
-                    className="mr-2"
-                    checked={formData.addons.largerStorage}
-                    onChange={() => toggleAddon("largerStorage")}
-                />
-                Include Larger Storage
-            </div>
-            <div className={styles.addon}>
-                <label className="block text-gray-600 text-sm font-bold mb-2">
-                    Customizable Profile
-                </label>
-                <input
-                    type="checkbox"
-                    className="mr-2"
-                    checked={formData.addons.customizableProfile}
-                    onChange={() => toggleAddon("customizableProfile")}
-                />
-                Include Customizable Profile
-            </div>
+
             {/* Agrega más Add-ons aquí según sea necesario */}
             <div className={styles.divButtons}>
                 <p className={styles.back} onClick={prevStep}>
