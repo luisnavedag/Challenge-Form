@@ -135,41 +135,45 @@ export const Form = () => {
 
         {/* STEP 1 */}
         <div className={styles.divContainer}>
-          <div className={`${styles.step} ${step === 1 ? "bg-cyan-300 text-black" : null }`}>
+          <div className={`${styles.step} ${step === 1 ? "bg-cyan-300 text-black" : null}`}>
             1
           </div>
           <div className={styles.stepInfo}>
-
+            <p className="text-xs font-light text-gray-300">STEP 1</p>
+            <p className="text-xs font-extrabold">YOUR INFO</p>
           </div>
         </div>
 
         {/* STEP 2 */}
         <div className={styles.divContainer}>
-          <div className={styles.step}>
+          <div className={`${styles.step} ${step === 2 ? "bg-cyan-300 text-black" : null}`}>
             2
           </div>
           <div className={styles.stepInfo}>
-
+            <p className="text-xs font-light text-gray-300">STEP 2</p>
+            <p className="text-xs font-extrabold">SELECT PLAN</p>
           </div>
         </div>
 
         {/* STEP 3 */}
         <div className={styles.divContainer}>
-          <div className={styles.step}>
+          <div className={`${styles.step} ${step === 3 ? "bg-cyan-300 text-black" : null}`}>
             3
           </div>
           <div className={styles.stepInfo}>
-
+            <p className="text-xs font-light text-gray-300">STEP 3</p>
+            <p className="text-xs font-extrabold">ADD-ONS</p>
           </div>
         </div>
 
         {/* STEP 4 */}
         <div className={styles.divContainer}>
-          <div className={styles.step}>
+          <div className={`${styles.step} ${step === 4 ? "bg-cyan-300 text-black" : null}`}>
             4
           </div>
           <div className={styles.stepInfo}>
-
+            <p className="text-xs font-light text-gray-300">STEP 4</p>
+            <p className="text-xs font-extrabold">SUMMARY</p>
           </div>
         </div>
       </div>
