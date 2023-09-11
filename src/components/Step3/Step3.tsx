@@ -5,12 +5,46 @@ interface Step3Props {
         name: string;
         email: string;
         phone: string;
-        selectedPlan: "Arcade" | "Advanced" | "Pro";
+        selectedPlan: {
+            arcade: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            },
+            advanced: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            },
+            pro: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            },
+        },
         subscriptionType: "Monthly" | "Annual";
         addons: {
-            onlineService: boolean;
-            largerStorage: boolean;
-            customizableProfile: boolean;
+            onlineService: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            },
+            largerStorage: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            },
+            customizableProfile: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            };
         };
     };
     setFormData: React.Dispatch<
@@ -18,29 +52,77 @@ interface Step3Props {
             name: string;
             email: string;
             phone: string;
-            selectedPlan: "Arcade" | "Advanced" | "Pro"; // 
+            selectedPlan: {
+                arcade: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+                advanced: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+                pro: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+            };
             subscriptionType: "Monthly" | "Annual";
             addons: {
-                onlineService: boolean;
-                largerStorage: boolean;
-                customizableProfile: boolean;
+                onlineService: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+                largerStorage: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+                customizableProfile: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
             };
         }>
     >;
-    prevStep: () => void;
     nextStep: () => void;
+    prevStep: () => void;
 }
 
 
 export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, nextStep }) => {
-    const toggleAddon = (addonName: string) => {
-        setFormData((prevData) => ({
-            ...prevData,
-            addons: {
-                ...prevData.addons,
-                [addonName]: !prevData.addons[addonName],
-            },
-        }));
+    const toggleAddon = (addonName: "onlineService" | "largerStorage" | "customizableProfile") => {
+        setFormData((prevData) => {
+            if (!prevData.addons || !prevData.addons[addonName]) {
+                return prevData; // No hacemos cambios si los datos no están definidos o el addon no existe.
+            }
+    
+            return {
+                ...prevData,
+                addons: {
+                    ...prevData.addons,
+                    [addonName]: !prevData.addons[addonName],
+                },
+            };
+        });
+    };
+
+    // OBTENER EL PRECIO SEGUN MEMBRESIA
+    const getAddonPrice = (addonName: "onlineService" | "largerStorage" | "customizableProfile") => {
+        const addon = formData.addons[addonName];
+        return formData.subscriptionType === "Monthly"
+            ? `$${addon.monthlyPrice}/mo`
+            : `$${addon.annualPrice}/yr`;
     };
 
     return (
@@ -52,13 +134,16 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                 </p>
             </div>
 
+
+            {/* ADD-ONS */}
             <div className={styles.addons}>
+
+                {/* ONLINE SERVICE */}
                 <div className={styles.addon}>
                     <div className="border w-10 flex align-middle justify-center h-full">
                         <input
                             type="checkbox"
                             className=""
-                            checked={formData.addons.onlineService}
                             onChange={() => toggleAddon("onlineService")}
                         />
                     </div>
@@ -69,50 +154,60 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                         <p className="text-gray-400 text-sm text-start">Access to multiplayer games</p>
                     </div>
                     <div className="w-20 h-full border border-black flex align-baseline justify-center">
-                        <p className="text-blue-500 text-xs pt-5 font-bold">+1$/mo</p>
+                        <p className="text-blue-500 text-xs pt-5 font-bold">
+                            {getAddonPrice("onlineService")}
+                        </p>
                     </div>
                 </div>
+
+                {/* LARGER STORAGE */}
                 <div className={styles.addon}>
                     <div className="border w-10 flex align-middle justify-center h-full">
                         <input
                             type="checkbox"
                             className=""
-                            checked={formData.addons.largerStorage}
+                            checked={formData.addons.largerStorage.selected}
                             onChange={() => toggleAddon("largerStorage")}
                         />
                     </div>
                     <div className="border border-green-500 w-72 flex flex-col align-middle justify-start pt-2 pl-2">
                         <label className="text-blue-900 text-sm font-bold text-start">
-                            Online Service
+                            Larger Storage
                         </label>
-                        <p className="text-gray-400 text-sm text-start">Access to multiplayer games</p>
+                        <p className="text-gray-400 text-sm text-start">Increase your storage capacity</p>
                     </div>
                     <div className="w-20 h-full border border-black flex align-baseline justify-center">
-                        <p className="text-blue-500 text-xs pt-5 font-bold">+2$/mo</p>
+                        <p className="text-blue-500 text-xs pt-5 font-bold">
+                            {getAddonPrice("largerStorage")}
+                        </p>
                     </div>
                 </div>
+
+                {/* CUSTOMIZABLE PROFILE */}
                 <div className={styles.addon}>
                     <div className="border w-10 flex align-middle justify-center h-full">
                         <input
                             type="checkbox"
                             className=""
-                            checked={formData.addons.customizableProfile}
+                            checked={formData.addons.customizableProfile.selected}
                             onChange={() => toggleAddon("customizableProfile")}
                         />
                     </div>
                     <div className="border border-green-500 w-72 flex flex-col align-middle justify-start pt-2 pl-2">
                         <label className="text-blue-900 text-sm font-bold text-start">
-                            Online Service
+                            Customizable Profile
                         </label>
-                        <p className="text-gray-400 text-sm text-start">Access to multiplayer games</p>
+                        <p className="text-gray-400 text-sm text-start">Personalize your profile</p>
                     </div>
                     <div className="w-20 h-full border border-black flex align-baseline justify-center">
-                        <p className="text-blue-500 text-xs pt-5 font-bold">+2$/mo</p>
+                        <p className="text-blue-500 text-xs pt-5 font-bold">
+                            {getAddonPrice("customizableProfile")}
+                        </p>
                     </div>
                 </div>
             </div>
 
-            {/* Agrega más Add-ons aquí según sea necesario */}
+            {/* NEXT AND BACK BUTTONS */}
             <div className={styles.divButtons}>
                 <p className={styles.back} onClick={prevStep}>
                     Go Back

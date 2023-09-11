@@ -5,16 +5,96 @@ interface Step1Props {
         name: string;
         email: string;
         phone: string;
-        selectedPlan: "Arcade" | "Advanced" | "Pro";
-        subscriptionType: "Monthly" | "Annual";
+        selectedPlan: {
+            arcade: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            },
+            advanced: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            },
+            pro: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            },
+        },
+        subscriptionType: "Monthly" | "Annual",
+        addons: {
+            onlineService: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            },
+            largerStorage: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            },
+            customizableProfile: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            },
+        },
     };
-    setFormData: React.Dispatch<React.SetStateAction<{
-        name: string;
-        email: string;
-        phone: string;
-        selectedPlan: "Arcade" | "Advanced" | "Pro"; // 
-        subscriptionType: "Monthly" | "Annual";
-    }>>;
+    setFormData: React.Dispatch<
+        React.SetStateAction<{
+            name: string;
+            email: string;
+            phone: string;
+            selectedPlan: {
+                arcade: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+                advanced: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+                pro: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+            };
+            subscriptionType: "Monthly" | "Annual";
+            addons: {
+                onlineService: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                },
+                largerStorage: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                },
+                customizableProfile: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                },
+            };
+        }>
+    >;
     nextStep: () => void;
 }
 

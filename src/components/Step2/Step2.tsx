@@ -8,16 +8,96 @@ interface Step2Props {
         name: string;
         email: string;
         phone: string;
-        selectedPlan: "Arcade" | "Advanced" | "Pro";
+        selectedPlan: {
+            arcade: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            };
+            advanced: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            };
+            pro: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            };
+        };
         subscriptionType: "Monthly" | "Annual";
+        addons: {
+            onlineService: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            };
+            largerStorage: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            };
+            customizableProfile: {
+                name: string;
+                monthlyPrice: number;
+                annualPrice: number;
+                selected: boolean;
+            };
+        };
     };
-    setFormData: React.Dispatch<React.SetStateAction<{
-        name: string;
-        email: string;
-        phone: string;
-        selectedPlan: "Arcade" | "Advanced" | "Pro"; // 
-        subscriptionType: "Monthly" | "Annual";
-    }>>;
+    setFormData: React.Dispatch<
+        React.SetStateAction<{
+            name: string;
+            email: string;
+            phone: string;
+            selectedPlan: {
+                arcade: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+                advanced: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+                pro: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+            };
+            subscriptionType: "Monthly" | "Annual";
+            addons: {
+                onlineService: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+                largerStorage: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+                customizableProfile: {
+                    name: string;
+                    monthlyPrice: number;
+                    annualPrice: number;
+                    selected: boolean;
+                };
+            };
+        }>
+    >;
     nextStep: () => void;
     prevStep: () => void;
 }
@@ -35,9 +115,22 @@ export const Step2: React.FC<Step2Props> = ({ formData, setFormData, nextStep, p
         setFormData({ ...formData, subscriptionType: newSubscriptionType });
     };
 
-    const handlePlanSelect = (selectedPlan: "Arcade" | "Advanced" | "Pro") => {
-        // Establecer el plan seleccionado
-        setFormData({ ...formData, selectedPlan });
+    const handlePlanSelect = (selectedPlan: "arcade" | "advanced" | "pro") => {
+        // Desseleccionar todos los planes
+        const updatedSelectedPlan = {
+            arcade: { ...formData.selectedPlan.arcade, selected: false },
+            advanced: { ...formData.selectedPlan.advanced, selected: false },
+            pro: { ...formData.selectedPlan.pro, selected: false },
+        };
+
+        // Seleccionar el plan especificado
+        updatedSelectedPlan[selectedPlan].selected = true;
+
+        // Actualizar el estado
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            selectedPlan: updatedSelectedPlan,
+        }));
     };
 
     return (
@@ -53,40 +146,71 @@ export const Step2: React.FC<Step2Props> = ({ formData, setFormData, nextStep, p
             <div className={styles.divPlans}>
 
                 {/* ARCADE PLAN */}
-                <div className={`${styles.plan} ${formData.selectedPlan === "Arcade" ? styles.selectedPlan : ""
-                    }`}
-                     onClick={() => handlePlanSelect("Arcade")}>
+                <div
+                    className={`${styles.plan} ${formData.selectedPlan.arcade.selected ? styles.selectedPlan : ""
+                        }`}
+                    onClick={() => handlePlanSelect("arcade")}
+                >
                     <img src={arcade} alt="arcade" width={30} height={30} />
                     <div className={styles.planInfo}>
                         <h3>Arcade</h3>
-                        <p>{formData.subscriptionType === "Monthly" ? "$9/mo" : "$90/yr"}</p>
-                        {formData.subscriptionType === "Annual" ? <p style={{ color: "#03295a", fontWeight: "bolder" }}>2 months free</p> : null}
+                        <p>
+                            {formData.subscriptionType === "Monthly"
+                                ? `$${formData.selectedPlan.arcade.monthlyPrice}/mo`
+                                : `$${formData.selectedPlan.arcade.annualPrice}/yr`}
+                        </p>
+                        {formData.subscriptionType === "Annual" ? (
+                            <p style={{ color: "#03295a", fontWeight: "bolder" }}>
+                                2 months free
+                            </p>
+                        ) : null}
                     </div>
                 </div>
 
                 {/* ADVANCED PLAN */}
-                <div className={`${styles.plan} ${formData.selectedPlan === "Advanced" ? styles.selectedPlan : ""
-                    }`}
-                     onClick={() => handlePlanSelect("Advanced")}>
+                <div
+                    className={`${styles.plan} ${formData.selectedPlan.advanced.selected ? styles.selectedPlan : ""
+                        }`}
+                    onClick={() => handlePlanSelect("advanced")}
+                >
                     <img src={advanced} alt="advanced" width={30} height={30} />
                     <div className={styles.planInfo}>
                         <h3>Advanced</h3>
-                        <p>{formData.subscriptionType === "Monthly" ? "$12/mo" : "$120/yr"}</p>
-                        {formData.subscriptionType === "Annual" ? <p style={{ color: "#03295a", fontWeight: "bolder" }}>2 months free</p> : null}
+                        <p>
+                            {formData.subscriptionType === "Monthly"
+                                ? `$${formData.selectedPlan.advanced.monthlyPrice}/mo`
+                                : `$${formData.selectedPlan.advanced.annualPrice}/yr`}
+                        </p>
+                        {formData.subscriptionType === "Annual" ? (
+                            <p style={{ color: "#03295a", fontWeight: "bolder" }}>
+                                2 months free
+                            </p>
+                        ) : null}
                     </div>
                 </div>
 
                 {/* PRO PLAN */}
-                <div className={`${styles.plan} ${formData.selectedPlan === "Pro" ? styles.selectedPlan : ""
-                    }`} 
-                    onClick={() => handlePlanSelect("Pro")}>
+                <div
+                    className={`${styles.plan} ${formData.selectedPlan.pro.selected ? styles.selectedPlan : ""
+                        }`}
+                    onClick={() => handlePlanSelect("pro")}
+                >
                     <img src={pro} alt="pro" width={30} height={30} />
                     <div className={styles.planInfo}>
                         <h3>Pro</h3>
-                        <p>{formData.subscriptionType === "Monthly" ? "$15/mo" : "$150/yr"}</p>
-                        {formData.subscriptionType === "Annual" ? <p style={{ color: "#03295a", fontWeight: "bolder" }}>2 months free</p> : null}
+                        <p>
+                            {formData.subscriptionType === "Monthly"
+                                ? `$${formData.selectedPlan.pro.monthlyPrice}/mo`
+                                : `$${formData.selectedPlan.pro.annualPrice}/yr`}
+                        </p>
+                        {formData.subscriptionType === "Annual" ? (
+                            <p style={{ color: "#03295a", fontWeight: "bolder" }}>
+                                2 months free
+                            </p>
+                        ) : null}
                     </div>
                 </div>
+
             </div>
 
             {/* SWITCH TOGGLE */}

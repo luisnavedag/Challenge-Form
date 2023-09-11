@@ -8,12 +8,46 @@ interface FormData {
   name: string;
   email: string;
   phone: string;
-  selectedPlan: "Arcade" | "Advanced" | "Pro";
+  selectedPlan: {
+    arcade: {
+      name: string,
+      monthlyPrice: number,
+      annualPrice: number;
+      selected: boolean
+    },
+    advanced: {
+      name: string,
+      monthlyPrice: number,
+      annualPrice: number;
+      selected: boolean
+    },
+    pro: {
+      name: string,
+      monthlyPrice: number,
+      annualPrice: number;
+      selected: boolean
+    }
+  }
   subscriptionType: "Monthly" | "Annual";
   addons: {
-    onlineService: boolean;
-    largerStorage: boolean;
-    customizableProfile: boolean;
+    onlineService: {
+      name: string,
+      monthlyPrice: number,
+      annualPrice: number,
+      selected: boolean
+    },
+    largerStorage: {
+      name: string,
+      monthlyPrice: number,
+      annualPrice: number,
+      selected: boolean
+    },
+    customizableProfile: {
+      name: string,
+      monthlyPrice: number,
+      annualPrice: number,
+      selected: boolean
+    }
   };
 }
 
@@ -23,14 +57,50 @@ export const Form = () => {
     name: "",
     email: "",
     phone: "",
-    selectedPlan: "Arcade",
+    selectedPlan: {
+      arcade: {
+        name: "Arcade",
+        monthlyPrice: 9,
+        annualPrice: 90,
+        selected: true
+      },
+      advanced: {
+        name: "Advanced",
+        monthlyPrice: 12,
+        annualPrice: 120,
+        selected: false
+      },
+      pro: {
+        name: "Pro",
+        monthlyPrice: 15,
+        annualPrice: 150,
+        selected: false
+      }
+    },
     subscriptionType: "Monthly",
     addons: {
-      onlineService: false,
-      largerStorage: false,
-      customizableProfile: false,
+      onlineService: {
+        name: "onlineService",
+        monthlyPrice: 1,
+        annualPrice: 10,
+        selected: false
+      },
+      largerStorage: {
+        name: "largerStorage",
+        monthlyPrice: 2,
+        annualPrice: 20,
+        selected: false
+      },
+      customizableProfile: {
+        name: "customizableProfile",
+        monthlyPrice: 2,
+        annualPrice: 20,
+        selected: false
+      },
     },
   });
+
+
 
   const [step, setStep] = useState<number>(1);
 
@@ -63,7 +133,48 @@ export const Form = () => {
     <div className={styles.container}>
       <div className={styles.sideBar}>
 
+        {/* STEP 1 */}
+        <div className={styles.divContainer}>
+          <div className={`${styles.step} ${step === 1 ? "bg-cyan-300 text-black" : null }`}>
+            1
+          </div>
+          <div className={styles.stepInfo}>
+
+          </div>
+        </div>
+
+        {/* STEP 2 */}
+        <div className={styles.divContainer}>
+          <div className={styles.step}>
+            2
+          </div>
+          <div className={styles.stepInfo}>
+
+          </div>
+        </div>
+
+        {/* STEP 3 */}
+        <div className={styles.divContainer}>
+          <div className={styles.step}>
+            3
+          </div>
+          <div className={styles.stepInfo}>
+
+          </div>
+        </div>
+
+        {/* STEP 4 */}
+        <div className={styles.divContainer}>
+          <div className={styles.step}>
+            4
+          </div>
+          <div className={styles.stepInfo}>
+
+          </div>
+        </div>
       </div>
+
+      {/* RENDER FORM */}
       <div className={styles.divForm}>
         {renderStep()}
       </div>
