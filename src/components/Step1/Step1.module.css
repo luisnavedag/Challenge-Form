@@ -119,11 +119,6 @@
 
 /* MEDIA QUERIES 371-767px*/
 @media (min-width: 371px) and (max-width: 767px){
-    .container{
-        height: 100vh;
-        overflow-y: hidden;
-        overflow-x: hidden;
-    }
 
     .info{
         padding: 10px 20px;
