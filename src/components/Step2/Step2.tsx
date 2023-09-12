@@ -215,7 +215,7 @@ export const Step2: React.FC<Step2Props> = ({ formData, setFormData, nextStep, p
 
             {/* SWITCH TOGGLE */}
             <div className={styles.divToggle}>
-                <div className="w-80 bg-slate-100 flex justify-center py-1 rounded-md">
+                <div className={`${styles.togglebg}`}>
                     <label className="flex items-center space-x-2">
                         <span className={formData.subscriptionType === "Monthly" ? "text-blue-900 font-bold text-xs" : "text-slate-400 font-bold text-xs"}>Monthly</span>
                         <div className="relative">

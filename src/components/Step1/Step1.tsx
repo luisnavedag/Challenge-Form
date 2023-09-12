@@ -239,10 +239,14 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
                     />
                 </div>
             </div>
+
+            {/* NEXT AND BACK BUTTONS */}
             <div className={styles.divButtons}>
+                <p className={styles.back}>Go Back</p>
                 <button
                     className={styles.nextButton}
-                    onClick={handleNextStep}>
+                    onClick={handleNextStep}
+                >
                     Next Step
                 </button>
             </div>

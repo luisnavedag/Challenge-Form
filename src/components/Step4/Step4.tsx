@@ -164,7 +164,7 @@ export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, n
                     </div>
 
                     {/* LINE BETWEEN */}
-                    <div className="border w-80 h-0 border-gray-200"></div>
+                    <div className={styles.line}></div>
 
 
                     <div className={styles.divDown}>

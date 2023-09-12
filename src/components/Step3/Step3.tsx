@@ -156,11 +156,11 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                             onChange={() => toggleAddon("onlineService")}
                         />
                     </div>
-                    <div className="w-72 flex flex-col align-middle justify-start pt-2 pl-2">
-                        <label className="text-blue-900 text-sm font-bold text-start">
+                    <div className="w-72 flex flex-col align-middle justify-start pt-2 pl-2 ">
+                        <label className={styles.label}>
                             Online Service
                         </label>
-                        <p className="text-gray-400 text-sm text-start">Access to multiplayer games</p>
+                        <p className={styles.description}>Access to multiplayer games</p>
                     </div>
                     <div className="w-20 h-full flex align-baseline justify-center">
                         <p className="text-blue-500 text-xs pt-5 font-bold">
@@ -180,10 +180,10 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                         />
                     </div>
                     <div className="w-72 flex flex-col align-middle justify-start pt-2 pl-2">
-                        <label className="text-blue-900 text-sm font-bold text-start">
+                        <label className={styles.label}>
                             Larger Storage
                         </label>
-                        <p className="text-gray-400 text-sm text-start">Extra 1TB of cloud save</p>
+                        <p className={styles.description}>Extra 1TB of cloud save</p>
                     </div>
                     <div className="w-20 h-full flex align-baseline justify-center">
                         <p className="text-blue-500 text-xs pt-5 font-bold">
@@ -203,10 +203,10 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                         />
                     </div>
                     <div className="w-72 flex flex-col align-middle justify-start pt-2 pl-2">
-                        <label className="text-blue-900 text-sm font-bold text-start">
+                        <label className={styles.label}>
                             Customizable Profile
                         </label>
-                        <p className="text-gray-400 text-sm text-start">Custom theme on your profile</p>
+                        <p className={styles.description}>Custom theme on your profile</p>
                     </div>
                     <div className="w-20 h-full flex align-baseline justify-center">
                         <p className="text-blue-500 text-xs pt-5 font-bold">
