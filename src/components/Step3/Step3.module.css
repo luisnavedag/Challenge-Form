@@ -47,7 +47,19 @@
 .addon{
     width: 100%;
     height: 60px;
-    border: 1px solid red;
+    border: 1px solid rgba(128, 128, 128, 0.468);
+    border-radius: 10px;
+    display: flex;
+    &:hover{
+        border: 1px solid #483EFE;
+    }
+}
+
+.addonSelected{
+    width: 100%;
+    height: 60px;
+    border: 1.5px solid #483EFE;
+    background-color: #f8f9fe;
     border-radius: 10px;
     display: flex;
 }

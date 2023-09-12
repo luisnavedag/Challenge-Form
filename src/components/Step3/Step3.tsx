@@ -147,11 +147,11 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
             <div className={styles.addons}>
 
                 {/* ONLINE SERVICE */}
-                <div className={styles.addon}>
-                    <div className="w-10 flex align-middle justify-center h-full">
+                <div className={`${formData.addons.onlineService.selected ? styles.addonSelected : styles.addon}`}>
+                    <div className="w-10 flex align-middle justify-center h-full cursor-pointer">
                         <input
                             type="checkbox"
-                            className={`${formData.addons.onlineService.selected ? "bg-slate-50" : "bg-" }`}
+                            className="cursor-pointer"
                             checked={formData.addons.onlineService.selected}
                             onChange={() => toggleAddon("onlineService")}
                         />
@@ -170,11 +170,11 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                 </div>
 
                 {/* LARGER STORAGE */}
-                <div className={styles.addon}>
+                <div className={`${formData.addons.largerStorage.selected ? styles.addonSelected : styles.addon}`}>
                     <div className="w-10 flex align-middle justify-center h-full">
                         <input
                             type="checkbox"
-                            className=""
+                            className="cursor-pointer"
                             checked={formData.addons.largerStorage.selected}
                             onChange={() => toggleAddon("largerStorage")}
                         />
@@ -193,11 +193,11 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                 </div>
 
                 {/* CUSTOMIZABLE PROFILE */}
-                <div className={styles.addon}>
+                <div className={`${formData.addons.customizableProfile.selected ? styles.addonSelected : styles.addon}`}>
                     <div className="w-10 flex align-middle justify-center h-full">
                         <input
                             type="checkbox"
-                            className=""
+                            className="cursor-pointer"
                             checked={formData.addons.customizableProfile.selected}
                             onChange={() => toggleAddon("customizableProfile")}
                         />

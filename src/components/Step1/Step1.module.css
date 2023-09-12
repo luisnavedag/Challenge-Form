@@ -60,10 +60,28 @@
     height: 35px;
     background-color: #fff;
     border-radius: 5px;
-    border: 1px outset gray;
+    border: 1px solid rgba(130, 130, 130, 0.612);
     font-family: Ubuntu;
     font-size: 13px;
     font-weight: 600;
+}
+
+.errors{
+    width: 350px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid rgb(193, 12, 12);
+    font-family: Ubuntu;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.label{
+    /* border: 1px solid gray; */
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
 }
 
 .divButtons{
