@@ -85,6 +85,7 @@
         border-radius: 0;
         background-size: cover;
         background-repeat: no-repeat;
+        background-position: left center;
         display: flex;
         padding: 0;
         justify-content: center;
@@ -108,7 +109,7 @@
 
     .divForm{
         width: 80%;
-        height: 50%;
+        height: 45%;
         /* border: 1px solid black; */
         border-radius: 15px;
         position: relative;
