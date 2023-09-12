@@ -134,7 +134,7 @@
     width: 95px;
     height: 40px;
     background-color: #03295a;
-    font-size: 12px;
+    font-size: 13px;
     font-family: Ubuntu;
     transition: .2s;
     &:hover{
@@ -197,7 +197,7 @@
         /* border: 1px solid blue; */
         position: relative;
         right: 15%;
-        top: 40%;
+        top: 41%;
         width: 110vw;
         border: none;
         background-color: #fff;
