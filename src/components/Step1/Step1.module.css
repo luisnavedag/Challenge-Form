@@ -116,3 +116,54 @@
     }
     
 }
+
+/* MEDIA QUERIES 371-767px*/
+@media (min-width: 371px) and (max-width: 767px){
+    .info{
+        padding: 10px 20px;
+        gap: 5px
+    }
+
+    .input{
+        padding: 0 20px;
+    }
+
+
+
+    .title{
+        font-size: 22px;
+    }
+
+    .titleDesc{
+        font-size: 15px;
+        text-align: start;
+        color: rgb(158, 158, 158);
+
+    }
+
+    .noError{
+        width: 265px;
+    }
+
+    .error{
+        width: 265px;
+    }
+
+    .label{
+        width: 265px;
+    }
+
+    .divButtons{
+        border: 1px solid blue;
+        position: relative;
+        right: 15%;
+        top: 50%;
+        width: 110vw;
+    }
+
+    .nextButton{
+        position: relative;
+        top: 200%;
+    }
+
+}

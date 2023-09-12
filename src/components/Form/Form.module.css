@@ -63,3 +63,52 @@
     justify-content: center;
     padding-top: 15px;
 }
+
+
+/* MEDIA QUERIES 371-767px*/
+@media (min-width: 371px) and (max-width: 767px){
+    .container{
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        padding: 0;
+        flex-direction: column;
+    }
+
+    .sideBar{
+        width: 100%;
+        height: 25%;
+        border-radius: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .divContainer{
+        width: fit-content;
+    }
+
+    .step{
+        width: 40px;
+        height: 40px;
+        font-size: medium;
+    }
+
+    .stepInfo{
+        display: none;
+    }
+
+    .divForm{
+        width: 80%;
+        height: 50%;
+        border: 1px solid black;
+        border-radius: 15px;
+        position: relative;
+        bottom: 60px;
+        background-color: #fff;
+    }
+}

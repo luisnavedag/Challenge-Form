@@ -4,3 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+
+/* MEDIA QUERIES 371px*/
+@media (min-width: 371px) and (max-width: 767px){
+  #root{
+    margin: 0;
+    padding: 0;
+  }
+}
