@@ -71,7 +71,9 @@
         width: 100vw;
         height: 100vh;
         border-radius: 0;
+        margin: 0;
         padding: 0;
+        background-color: #eef5ff;
         flex-direction: column;
         overflow-x: hidden;
         overflow-y: hidden;
@@ -107,7 +109,7 @@
     .divForm{
         width: 80%;
         height: 50%;
-        border: 1px solid black;
+        /* border: 1px solid black; */
         border-radius: 15px;
         position: relative;
         bottom: 60px;

@@ -119,6 +119,7 @@
 
 /* MEDIA QUERIES 371-767px*/
 @media (min-width: 371px) and (max-width: 767px){
+    
 
     .info{
         padding: 10px 20px;
@@ -158,13 +159,15 @@
         border: 1px solid blue;
         position: relative;
         right: 15%;
-        top: 50%;
+        top: 65%;
         width: 110vw;
+        border: none;
+        background-color: #fff;
     }
 
     .nextButton{
         position: relative;
-        top: 50%;
+        top: 60%;
     }
 
 }
