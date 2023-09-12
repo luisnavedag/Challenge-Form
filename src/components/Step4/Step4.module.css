@@ -21,7 +21,7 @@
 
 .title{
     color: #03295a;
-    font-size: 30px;
+    font-size: 27px;
     font-family: url("../../assets/fonts/Ubuntu-Bold.ttf");
     font-weight: bolder;
     margin: 0;
@@ -29,7 +29,7 @@
 
 .titleDesc{
     color: gray;
-    font-size: 15px;
+    font-size: 13px;
     margin: 0;
 }
 
@@ -101,7 +101,7 @@
     font-family: Ubuntu;
     transition: .2s;
     &:hover{
-        transform: scale(0.98);
+        background-color: #938cfe;
         transition: .3s;
     }
     

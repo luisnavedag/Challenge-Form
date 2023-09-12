@@ -195,8 +195,7 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
                     <input
                         type="text"
                         placeholder="e.g. Stephen King"
-                        className={`shadow appearance-none ${errors.name ? styles.errors : null
-                            } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline focus:shadow-outline`}
+                        className={`${errors.name ? styles.error : styles.noError } py-2 px-3`}
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
@@ -214,8 +213,7 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
                     <input
                         type="text"
                         placeholder="e.g. stephenking@lorem.com"
-                        className={`shadow appearance-none border ${errors.email ? "border-red-500" : "border-slate-300"
-                            } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline focus:shadow-outline`}
+                        className={`${errors.email ? styles.error : styles.noError } py-2 px-3`}
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
@@ -234,8 +232,7 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
                     <input
                         type="text"
                         placeholder="e.g. +1 234 567 890"
-                        className={`shadow appearance-none border ${errors.phone ? "border-red-500" : "border-slate-300"
-                            } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline focus:shadow-outline`}
+                        className={`${errors.phone ? styles.error : styles.noError } py-2 px-3`}
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}

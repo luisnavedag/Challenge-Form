@@ -148,7 +148,7 @@ export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, n
                             </p>
 
                             {/* CHANGE PLAN */}
-                            <p onClick={handlePlanChange} className="cursor-pointer text-xs text-gray-700 text-left underline">
+                            <p onClick={handlePlanChange} className="cursor-pointer text-xs text-gray-700 text-left underline hover:text-purple-700 hover:font-medium">
                                 Change
                             </p>
                         </div>
