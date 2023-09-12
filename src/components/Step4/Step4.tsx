@@ -172,10 +172,10 @@ export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, n
                             addon.selected && (
                                 <div key={addonName} className="flex justify-between items-center pl-4">
 
-                                    <p className="text-xs font-thin text-gray-700">
+                                    <p className="text-xs text-gray-400">
                                         {addon.name}
                                     </p>
-                                    <p className="text-xs font-normal text-blue-950 pr-5">
+                                    <p className="text-xs font-semibold text-blue-900 pr-5">
                                         +${formData.subscriptionType === "Monthly"
                                             ? addon.monthlyPrice + "/mo"
                                             : addon.annualPrice + "/yr"}
@@ -186,9 +186,9 @@ export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, n
                     </div>
                 </div>
                 <div className={styles.total}>
-                    <p className="text-xs font-thin text-gray-700">Total ({formData
+                    <p className="text-xs text-gray-400">Total ({formData
                     .subscriptionType === "Monthly" ? "per month" : "per year"})</p>
-                    <p className="text-sm text-purple-700 font-extrabold">${totalPrice.toFixed(0)}{formData
+                    <p className="text-sm text-blue-700 font-extrabold">${totalPrice.toFixed(0)}{formData
                     .subscriptionType === "Monthly" ? "/mo" : "/yr"}</p>
                 </div>
             </div>
