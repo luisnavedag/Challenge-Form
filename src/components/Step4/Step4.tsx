@@ -120,7 +120,7 @@ export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, n
             <div className={styles.summary}>
                 <div className={styles.sumContainer}>
                     <div className={styles.divUp}>
-                        <div className="w-40 h-full pt-2 pl-2">
+                        <div className="w-40 h-full pt-2 pl-4">
 
                             {/* PLAN AND SUBSCRIPTION */}
                             <p className="text-blue-950 text-sm font-extrabold text-left">{Object.values(formData.selectedPlan).find((plan) => plan.selected)?.name} (
@@ -134,11 +134,11 @@ export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, n
                         </div>
                         <div className="w-20 h-full flex align-middle justify-center pt-4">
                             <p className="text-blue-950 text-sm font-extrabold text-center">
-                                ${formData.subscriptionType === "Monthly" 
-                                ? Object.values(formData.selectedPlan).find((plan) => plan.selected)?.monthlyPrice + "/mo"
-                                : 
-                                Object.values(formData.selectedPlan).find((plan) => plan.selected)?.annualPrice + "yr"
-                            }
+                                ${formData.subscriptionType === "Monthly"
+                                    ? Object.values(formData.selectedPlan).find((plan) => plan.selected)?.monthlyPrice + "/mo"
+                                    :
+                                    Object.values(formData.selectedPlan).find((plan) => plan.selected)?.annualPrice + "/yr"
+                                }
                             </p>
                         </div>
                     </div>
@@ -148,7 +148,21 @@ export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, n
 
 
                     <div className={styles.divDown}>
+                        {Object.entries(formData.addons).map(([addonName, addon]) => (
+                            addon.selected && (
+                                <div key={addonName} className="flex justify-between items-center pl-4">
 
+                                    <p className="text-xs font-thin text-gray-700">
+                                        {addon.name}
+                                    </p>
+                                    <p className="text-xs font-normal text-blue-950 pr-5">
+                                        +${formData.subscriptionType === "Monthly"
+                                            ? addon.monthlyPrice + "/mo"
+                                            : addon.annualPrice + "/yr"}
+                                    </p>
+                                </div>
+                            )
+                        ))}
                     </div>
                 </div>
                 <div className={styles.total}>

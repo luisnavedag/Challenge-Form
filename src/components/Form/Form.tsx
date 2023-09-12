@@ -81,19 +81,19 @@ export const Form = () => {
     subscriptionType: "Monthly",
     addons: {
       onlineService: {
-        name: "onlineService",
+        name: "Online Service",
         monthlyPrice: 1,
         annualPrice: 10,
         selected: false
       },
       largerStorage: {
-        name: "largerStorage",
+        name: "Larger Storage",
         monthlyPrice: 2,
         annualPrice: 20,
         selected: false
       },
       customizableProfile: {
-        name: "customizableProfile",
+        name: "Customizable Profile",
         monthlyPrice: 2,
         annualPrice: 20,
         selected: false
