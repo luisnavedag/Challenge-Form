@@ -4,6 +4,7 @@ import { Step1 } from "../Step1/Step1";
 import { Step2 } from "../Step2/Step2";
 import { Step3 } from "../Step3/Step3";
 import { Step4 } from "../Step4/Step4";
+import { Thanks } from "../Thanks/Thanks";
 
 interface FormData {
   name: string;
@@ -123,6 +124,8 @@ export const Form = () => {
         return <Step3 formData={formData} setFormData={setFormData} prevStep={prevStep} nextStep={nextStep} />;
       case 4:
         return <Step4 formData={formData} setFormData={setFormData} prevStep={prevStep} nextStep={nextStep} setStep={setStep} />;
+      case 5:
+        return <Thanks />
 
 
       default:
@@ -169,7 +172,7 @@ export const Form = () => {
 
         {/* STEP 4 */}
         <div className={styles.divContainer}>
-          <div className={`${styles.step} ${step === 4 ? "bg-cyan-300 text-black" : null}`}>
+          <div className={`${styles.step} ${step === 4 || step === 5 ? "bg-cyan-300 text-black" : null}`}>
             4
           </div>
           <div className={styles.stepInfo}>
