@@ -107,6 +107,26 @@ export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, n
         setStep(2)
     };
 
+    //CALCULANDO PRECIO TOTAL
+    const calculateTotalPrice = () => {
+        // Plan seleccionado
+        const selectedPlan = Object.values(formData.selectedPlan).find((plan) => plan.selected);
+
+        // Sumando el precio del plan y los addons seleccionados
+        let totalPrice = selectedPlan ? (formData.subscriptionType === "Monthly" ? selectedPlan.monthlyPrice : selectedPlan.annualPrice) : 0;
+
+        Object.entries(formData.addons).forEach(([addonName, addon]) => {
+            if (addon.selected) {
+                totalPrice += formData.subscriptionType === "Monthly" ? addon.monthlyPrice : addon.annualPrice;
+            }
+        });
+
+        return totalPrice;
+    };
+
+    //LLAMANDO AL PRECIO TOTAL
+    const totalPrice = calculateTotalPrice();
+
     return (
         <div className={styles.container}>
             <div className={styles.info}>
@@ -166,7 +186,10 @@ export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, n
                     </div>
                 </div>
                 <div className={styles.total}>
-
+                    <p className="text-xs font-thin text-gray-700">Total ({formData
+                    .subscriptionType === "Monthly" ? "per month" : "per year"})</p>
+                    <p className="text-sm text-purple-700 font-extrabold">${totalPrice.toFixed(0)}{formData
+                    .subscriptionType === "Monthly" ? "/mo" : "/yr"}</p>
                 </div>
             </div>
 
@@ -176,7 +199,7 @@ export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, n
                     Go Back
                 </p>
                 <button className={styles.nextButton} onClick={nextStep}>
-                    Next Step
+                    Confirm
                 </button>
             </div>
         </div>

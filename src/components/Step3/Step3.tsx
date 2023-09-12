@@ -148,7 +148,7 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
 
                 {/* ONLINE SERVICE */}
                 <div className={styles.addon}>
-                    <div className="border w-10 flex align-middle justify-center h-full">
+                    <div className="w-10 flex align-middle justify-center h-full">
                         <input
                             type="checkbox"
                             className={`${formData.addons.onlineService.selected ? "bg-slate-50" : "bg-" }`}
@@ -156,13 +156,13 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                             onChange={() => toggleAddon("onlineService")}
                         />
                     </div>
-                    <div className="border border-green-500 w-72 flex flex-col align-middle justify-start pt-2 pl-2">
+                    <div className="w-72 flex flex-col align-middle justify-start pt-2 pl-2">
                         <label className="text-blue-900 text-sm font-bold text-start">
                             Online Service
                         </label>
                         <p className="text-gray-400 text-sm text-start">Access to multiplayer games</p>
                     </div>
-                    <div className="w-20 h-full border border-black flex align-baseline justify-center">
+                    <div className="w-20 h-full flex align-baseline justify-center">
                         <p className="text-blue-500 text-xs pt-5 font-bold">
                             {getAddonPrice("onlineService")}
                         </p>
@@ -171,7 +171,7 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
 
                 {/* LARGER STORAGE */}
                 <div className={styles.addon}>
-                    <div className="border w-10 flex align-middle justify-center h-full">
+                    <div className="w-10 flex align-middle justify-center h-full">
                         <input
                             type="checkbox"
                             className=""
@@ -179,13 +179,13 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                             onChange={() => toggleAddon("largerStorage")}
                         />
                     </div>
-                    <div className="border border-green-500 w-72 flex flex-col align-middle justify-start pt-2 pl-2">
+                    <div className="w-72 flex flex-col align-middle justify-start pt-2 pl-2">
                         <label className="text-blue-900 text-sm font-bold text-start">
                             Larger Storage
                         </label>
                         <p className="text-gray-400 text-sm text-start">Extra 1TB of cloud save</p>
                     </div>
-                    <div className="w-20 h-full border border-black flex align-baseline justify-center">
+                    <div className="w-20 h-full flex align-baseline justify-center">
                         <p className="text-blue-500 text-xs pt-5 font-bold">
                             {getAddonPrice("largerStorage")}
                         </p>
@@ -194,7 +194,7 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
 
                 {/* CUSTOMIZABLE PROFILE */}
                 <div className={styles.addon}>
-                    <div className="border w-10 flex align-middle justify-center h-full">
+                    <div className="w-10 flex align-middle justify-center h-full">
                         <input
                             type="checkbox"
                             className=""
@@ -202,13 +202,13 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                             onChange={() => toggleAddon("customizableProfile")}
                         />
                     </div>
-                    <div className="border border-green-500 w-72 flex flex-col align-middle justify-start pt-2 pl-2">
+                    <div className="w-72 flex flex-col align-middle justify-start pt-2 pl-2">
                         <label className="text-blue-900 text-sm font-bold text-start">
                             Customizable Profile
                         </label>
                         <p className="text-gray-400 text-sm text-start">Custom theme on your profile</p>
                     </div>
-                    <div className="w-20 h-full border border-black flex align-baseline justify-center">
+                    <div className="w-20 h-full flex align-baseline justify-center">
                         <p className="text-blue-500 text-xs pt-5 font-bold">
                             {getAddonPrice("customizableProfile")}
                         </p>
