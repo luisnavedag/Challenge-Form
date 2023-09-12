@@ -159,7 +159,7 @@
         border: 1px solid blue;
         position: relative;
         right: 15%;
-        top: 75%;
+        top: 70%;
         width: 110vw;
         border: none;
         background-color: #fff;
@@ -167,7 +167,7 @@
 
     .nextButton{
         position: relative;
-        top: 60%;
+        top: 55%;
     }
 
 }
