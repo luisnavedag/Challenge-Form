@@ -103,17 +103,20 @@ export const Form = () => {
   });
 
 
-
+  //STEP LOCAL STATE
   const [step, setStep] = useState<number>(1);
 
+  //NEXT STEP
   const nextStep = () => {
     setStep(step + 1);
   };
 
+  //PREVIOUS STEP
   const prevStep = () => {
     setStep(step - 1);
   };
 
+  //RENDER BY STEP
   const renderStep = () => {
     switch (step) {
       case 1:
@@ -126,7 +129,6 @@ export const Form = () => {
         return <Step4 formData={formData} setFormData={setFormData} prevStep={prevStep} nextStep={nextStep} setStep={setStep} />;
       case 5:
         return <Thanks />
-
 
       default:
         return null;
