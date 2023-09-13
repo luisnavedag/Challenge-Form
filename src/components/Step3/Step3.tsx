@@ -148,10 +148,10 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
 
                 {/* ONLINE SERVICE */}
                 <div className={`${formData.addons.onlineService.selected ? styles.addonSelected : styles.addon}`}>
-                    <div className="w-10 flex align-middle justify-center h-full cursor-pointer">
+                    <div className="w-10 flex align-middle justify-center h-full">
                         <input
                             type="checkbox"
-                            className="cursor-pointer"
+                            className={styles.checkbox}
                             checked={formData.addons.onlineService.selected}
                             onChange={() => toggleAddon("onlineService")}
                         />
@@ -174,7 +174,7 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                     <div className="w-10 flex align-middle justify-center h-full">
                         <input
                             type="checkbox"
-                            className="cursor-pointer"
+                            className={styles.checkbox}
                             checked={formData.addons.largerStorage.selected}
                             onChange={() => toggleAddon("largerStorage")}
                         />
@@ -197,7 +197,7 @@ export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, n
                     <div className="w-10 flex align-middle justify-center h-full">
                         <input
                             type="checkbox"
-                            className="cursor-pointer"
+                            className={styles.checkbox}
                             checked={formData.addons.customizableProfile.selected}
                             onChange={() => toggleAddon("customizableProfile")}
                         />

@@ -1,4 +1,4 @@
-.container{
+.container {
     width: 100%;
     height: 100%;
     /* border: 1px solid blue; */
@@ -8,7 +8,7 @@
     align-items: start;
 }
 
-.info{
+.info {
     width: 100%;
     height: 100px;
     /* border: 1px solid red; */
@@ -19,7 +19,7 @@
     justify-content: start;
 }
 
-.title{
+.title {
     color: #03295a;
     font-size: 27px;
     font-family: url("../../assets/fonts/Ubuntu-Bold.ttf");
@@ -27,13 +27,13 @@
     margin: 0;
 }
 
-.titleDesc{
+.titleDesc {
     color: gray;
     font-size: 13px;
     margin: 0;
 }
 
-.addons{
+.addons {
     width: 100%;
     height: 250px;
     /* border: 2px solid green; */
@@ -44,18 +44,19 @@
     justify-content: space-evenly;
 }
 
-.addon{
+.addon {
     width: 100%;
     height: 60px;
     border: 1px solid rgba(128, 128, 128, 0.468);
     border-radius: 10px;
     display: flex;
-    &:hover{
+
+    &:hover {
         border: 1px solid #483EFE;
     }
 }
 
-.label{
+.label {
     color: #03295a;
     font-size: 14px;
     line-height: 1.25rem;
@@ -63,14 +64,44 @@
     text-align: start;
 }
 
-.description{
+.description {
     color: rgb(156 163 175);
     font-size: 14px;
     line-height: 20px;
     text-align: start;
 }
 
-.addonSelected{
+.checkbox[type="checkbox"] {
+    background-color: #fff;
+    appearance: none;
+    border: 1px solid rgb(156, 156, 156);
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    text-align: center;
+    align-self: center;
+    position: relative;
+}
+
+.checkbox[type="checkbox"]:checked::before {
+    content: "\2713";
+    font-size: 9px;
+    background-color: #483EFE;
+    border-radius: 2px;
+    align-self: center;
+    position: absolute;
+    text-align: center;
+    width: 12px;
+    height: 12px;
+    /* Añade esta línea */
+    top: 0;
+    /* Añade esta línea */
+    left: 0;
+    /* Añade esta línea */
+}
+
+.addonSelected {
     width: 100%;
     height: 60px;
     border: 1.5px solid #483EFE;
@@ -79,7 +110,7 @@
     display: flex;
 }
 
-.divButtons{
+.divButtons {
     /* border: 1px solid purple; */
     width: 100%;
     height: 110px;
@@ -91,28 +122,30 @@
     padding-top: 30px;
 }
 
-.nextButton{
+.nextButton {
     width: 95px;
     height: 40px;
     background-color: #03295a;
     font-size: 13px;
     font-family: Ubuntu;
     transition: .2s;
-    &:hover{
+
+    &:hover {
         background-color: #174a8a;
         transition: .3s;
     }
-    
+
 }
 
-.back{
+.back {
     font-size: 15px;
     color: gray;
     padding-left: 70px;
     font-weight: 600;
     cursor: pointer;
     transition: .2s;
-    &:hover{
+
+    &:hover {
         color: #03295a;
         transition: .3s;
     }
@@ -120,47 +153,47 @@
 
 
 /* MEDIA QUERIES 371-767px*/
-@media (min-width: 371px) and (max-width: 767px){
-    .info{
+@media (min-width: 371px) and (max-width: 767px) {
+    .info {
         padding: 10px 20px;
         gap: 5px
     }
 
-    .title{
+    .title {
         font-size: 22px;
     }
 
-    .titleDesc{
+    .titleDesc {
         font-size: 15px;
         text-align: start;
         color: rgb(158, 158, 158);
 
     }
 
-    .addons{
+    .addons {
         padding: 10px 20px;
         gap: 15px;
     }
 
-    .addon{
+    .addon {
         height: 70px;
         padding: 0 10px;
     }
 
-    .addonSelected{
+    .addonSelected {
         height: 70px;
         padding: 0 10px;
     }
 
-    .label{
+    .label {
         font-size: 12px
     }
 
-    .description{
+    .description {
         font-size: 12px
     }
 
-    .divButtons{
+    .divButtons {
         /* border: 1px solid blue; */
         position: relative;
         right: 15%;
