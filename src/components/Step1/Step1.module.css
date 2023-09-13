@@ -68,7 +68,7 @@
     font-size: 13px;
     font-weight: 600;
     &:focus{
-        border: 1.5px solid #03295a;
+        border: 1px solid #04316c;
     }
 }
 
@@ -166,7 +166,7 @@
         border: 1px solid blue;
         position: relative;
         right: 15%;
-        top: 50%;
+        top: 65%;
         width: 110vw;
         border: none;
         background-color: #fff;

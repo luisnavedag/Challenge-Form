@@ -111,11 +111,13 @@
 
     .divForm{
         width: 80%;
-        height: 50%;
+        min-height: auto;
+        max-height: 390px;
+        margin: auto;
         /* border: 1px solid black; */
         border-radius: 15px;
         position: relative;
-        bottom: 60px;
+        bottom: 180px;
         background-color: #fff;
     }
 }
