@@ -114,16 +114,17 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
     });
 
     const handleNextStep = () => {
-        // Validar campos antes de pasar al siguiente paso
+        // Validando los campos antes de pasar al siguiente paso
         const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
         const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/;
 
+        //Flag para avanzar al siguiente paso
         let valid = true;
 
         if (!formData.name) {
             setErrors((prevErrors) => ({
                 ...prevErrors,
-                name: "Name is required",
+                name: "This fiel is required",
             }));
             valid = false;
         } else {
@@ -133,26 +134,41 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
             }));
         }
 
-        if (!formData.email || !emailRegex.test(formData.email)) {
+        if (!formData.email) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                email: "This field is required",
+            }));
+            valid = false;
+        } else if (!emailRegex.test(formData.email)) {
             setErrors((prevErrors) => ({
                 ...prevErrors,
                 email: "Invalid email address",
             }));
             valid = false;
-        } else {
+        }
+        else {
             setErrors((prevErrors) => ({
                 ...prevErrors,
                 email: null,
             }));
         }
 
-        if (!formData.phone || !phoneRegex.test(formData.phone)) {
+        if (!formData.phone) {
             setErrors((prevErrors) => ({
                 ...prevErrors,
                 phone: "This field is required",
             }));
             valid = false;
-        } else {
+        } 
+        else if (!phoneRegex.test(formData.phone)) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                phone: "Invalid Phone Number",
+            }));
+            valid = false;
+        }
+        else {
             setErrors((prevErrors) => ({
                 ...prevErrors,
                 phone: null,
@@ -164,6 +180,7 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
         }
     };
 
+    //HANDLE DE LOS INPUTS
     const handleInputChange = (
         event: React.ChangeEvent<HTMLInputElement>
     ) => {
@@ -195,7 +212,7 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
                     <input
                         type="text"
                         placeholder="e.g. Stephen King"
-                        className={`${errors.name ? styles.error : styles.noError } py-2 px-3`}
+                        className={`${errors.name ? styles.error : styles.noError} py-2 px-3`}
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
@@ -213,7 +230,7 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
                     <input
                         type="text"
                         placeholder="e.g. stephenking@lorem.com"
-                        className={`${errors.email ? styles.error : styles.noError } py-2 px-3`}
+                        className={`${errors.email ? styles.error : styles.noError} py-2 px-3`}
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
@@ -232,7 +249,7 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
                     <input
                         type="text"
                         placeholder="e.g. +1 234 567 890"
-                        className={`${errors.phone ? styles.error : styles.noError } py-2 px-3`}
+                        className={`${errors.phone ? styles.error : styles.noError} py-2 px-3`}
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
