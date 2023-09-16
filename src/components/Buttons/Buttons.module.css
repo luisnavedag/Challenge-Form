@@ -1,0 +1,109 @@
+.container {
+    /* border: 1px solid black; */
+    width: 100vw;
+    height: 10vh;
+    background-color: #fff;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+}
+
+.containerStep1 {
+    width: 100vw;
+    height: 10vh;
+    background-color: #fff;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+}
+
+.noContainer {
+    width: 100vw;
+    height: 10vh;
+    background-color: #fff;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+}
+
+.nextButton {
+    width: 95px;
+    height: 40px;
+    background-color: #03295a;
+    font-size: 13px;
+    font-family: Ubuntu;
+    transition: .2s;
+
+    &:hover {
+        background-color: #174a8a;
+        transition: .3s;
+    }
+}
+
+.back {
+    font-size: 15px;
+    color: gray;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+        color: #03295a;
+        transition: .3s;
+    }
+}
+
+.hidden {
+    font-size: 15px;
+    color: gray;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+        color: #03295a;
+        transition: .3s;
+    }
+
+    visibility: hidden;
+}
+
+.confirm {
+    content: "Confirm";
+    width: 95px;
+    height: 40px;
+    background-color: #483efe;
+    font-size: 13px;
+    font-family: Ubuntu;
+    transition: .2s;
+
+    &:hover {
+        background-color: #938cfe;
+        transition: .3s;
+    }
+}
+
+/* MEDIA QUERIES 371px*/
+@media (min-width: 371px) and (max-width: 767px) {
+
+    .container {
+        display: flex;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    .containerStep1 {
+        display: flex;
+        justify-content: end;
+    }
+
+    .noContainer {
+        display: flex;
+        visibility: hidden;
+    }
+}
