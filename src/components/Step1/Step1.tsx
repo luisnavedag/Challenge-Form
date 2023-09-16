@@ -124,7 +124,7 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
         if (!formData.name) {
             setErrors((prevErrors) => ({
                 ...prevErrors,
-                name: "This fiel is required",
+                name: "This field is required",
             }));
             valid = false;
         } else {
