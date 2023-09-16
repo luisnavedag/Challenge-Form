@@ -149,7 +149,7 @@
         /* border: 1px solid blue; */
         position: relative;
         right: 15%;
-        top: 31%;
+        top: 71%;
         width: 110vw;
         border: none;
         background-color: #fff;
@@ -157,5 +157,11 @@
 
     .sumContainer{
        margin-top: 10px;
+    }
+}
+
+@media (min-height: 650px) and (max-height: 700px){
+    .divButtons{
+        top: 31%;
     }
 }

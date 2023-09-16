@@ -197,11 +197,17 @@
         /* border: 1px solid blue; */
         position: relative;
         right: 15%;
-        top: 16%;
+        top: 56%;
         width: 110vw;
         border: none;
         background-color: #fff;
     }
 
     
+}
+
+@media (min-height: 650px) and (max-height: 700px){
+    .divButtons{
+        top: 16%;
+    }
 }
