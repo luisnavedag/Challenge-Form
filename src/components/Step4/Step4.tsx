@@ -100,7 +100,7 @@ interface Step4Props {
     setStep: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const Step4: React.FC<Step4Props> = ({ formData, setFormData, prevStep, nextStep, setStep }) => {
+export const Step4 = ({ formData, prevStep, nextStep, setStep }: Step4Props) => {
 
     // CAMBIAR EL PLAN
     const handlePlanChange = () => {

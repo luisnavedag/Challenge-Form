@@ -100,7 +100,7 @@ interface Step1Props {
     nextStep: () => void;
 }
 
-export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep }) => {
+export const Step1 = ({ formData, setFormData, nextStep }: Step1Props) => {
 
 
     const [errors, setErrors] = useState<{
@@ -181,9 +181,7 @@ export const Step1: React.FC<Step1Props> = ({ formData, setFormData, nextStep })
     };
 
     //HANDLE DE LOS INPUTS
-    const handleInputChange = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
 
 

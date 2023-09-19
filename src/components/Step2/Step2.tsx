@@ -103,7 +103,7 @@ interface Step2Props {
 }
 
 
-export const Step2: React.FC<Step2Props> = ({ formData, setFormData, nextStep, prevStep }) => {
+export const Step2 = ({ formData, setFormData, nextStep, prevStep }: Step2Props) => {
     const handleNextStep = () => {
         nextStep();
     };

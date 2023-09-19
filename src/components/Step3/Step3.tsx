@@ -100,7 +100,7 @@ interface Step3Props {
 }
 
 
-export const Step3: React.FC<Step3Props> = ({ formData, setFormData, prevStep, nextStep }) => {
+export const Step3= ({ formData, setFormData, prevStep, nextStep }: Step3Props) => {
     const toggleAddon = (addonName: "onlineService" | "largerStorage" | "customizableProfile") => {
         setFormData((prevData) => {
             if (!prevData.addons || !prevData.addons[addonName]) {
